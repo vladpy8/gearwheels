@@ -1,0 +1,14 @@
+*
+!.gitignore
+!.gitkeep
+
+!pyproject.toml
+!*.yml
+
+!*/**/*.py
+!*/**/*.sh
+!*/**/*.md
+
+!*/**/
+!gears/
+!shell/

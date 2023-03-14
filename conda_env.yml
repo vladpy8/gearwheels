@@ -1,0 +1,9 @@
+name: gears-dev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip>=22.2
+  - python>=3.10
+  - pylint>=2.15
+  - mypy>=0.982

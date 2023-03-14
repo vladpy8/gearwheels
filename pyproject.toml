@@ -1,0 +1,39 @@
+[tool.pylint]
+
+[tool.pylint.main]
+jobs=1
+
+[tool.pylint.format]
+indent-string="\t"
+max-line-length=120
+
+[tool.pylint.design]
+min-public-methods=1
+max-args=10
+
+
+[tool.mypy]
+
+pretty=false
+show-column-numbers=true
+ignore_missing_imports=true
+follow_imports="silent"
+no_implicit_optional=true
+allow_redefinition=true
+strict_equality=true
+warn_redundant_casts=true
+warn_unused_ignores=true
+warn_unreachable=true
+
+# [options]
+
+# zip_safe=true
+# include_package_data=true
+
+
+# [options]
+# package_dir=
+#     =src
+
+# [options.packages.find]
+# where=src
