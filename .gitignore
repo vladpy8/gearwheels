@@ -3,7 +3,8 @@
 !.gitkeep
 
 !pyproject.toml
-!*.yml
+!README.md
+!conda_env.yml
 
 !*/**/*.py
 !*/**/*.sh

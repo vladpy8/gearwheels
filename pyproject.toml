@@ -1,3 +1,33 @@
+[project]
+name = "gears"
+authors = [
+	{ name="vladpy8", email="vlpyslaru+gears@gmail.com" },
+]
+description = "todo"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"Operating System :: OS Independent",
+]
+dependencies=[
+	"python>=3.10",
+]
+dynamic = [
+	"version",
+]
+
+[project.urls]
+homepage="https://github.com/vladpy8/gears"
+repository="https://github.com/vladpy8/gears"
+
+[project.optional-dependencies]
+dev = [
+	"pylint>=2.15",
+	"mypy>=0.982",
+]
+
+
 [tool.pylint]
 
 [tool.pylint.main]
@@ -13,7 +43,6 @@ max-args=10
 
 
 [tool.mypy]
-
 pretty=false
 show-column-numbers=true
 ignore_missing_imports=true
