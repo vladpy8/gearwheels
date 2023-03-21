@@ -25,7 +25,7 @@ conda update \
 --name base \
 conda
 
-conda-env create \
+conda env create \
 --file "${CONDA_ENV_YML_PATH}" \
 --force
 
