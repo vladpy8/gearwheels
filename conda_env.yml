@@ -1,4 +1,4 @@
-name: gears-dev
+name: gearwheel-dev
 channels:
   - conda-forge
   - defaults

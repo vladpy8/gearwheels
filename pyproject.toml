@@ -1,7 +1,7 @@
 [project]
-name = "gears"
+name = "gearwheel"
 authors = [
-	{ name="vladpy8", email="vlpyslaru+gears@gmail.com" },
+	{ name="vladpy", email="vlpyslaru+gearwheel@gmail.com" },
 ]
 description = "todo"
 readme = "README.md"
@@ -18,8 +18,8 @@ dynamic = [
 ]
 
 [project.urls]
-homepage="https://github.com/vladpy8/gears"
-repository="https://github.com/vladpy8/gears"
+homepage="https://github.com/vladpy8/gearwheel"
+repository="https://github.com/vladpy8/gearwheel"
 
 [project.optional-dependencies]
 dev = [
