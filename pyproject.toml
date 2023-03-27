@@ -1,30 +1,29 @@
 [project]
-name = "gearwheel"
-authors = [
-	{ name="vladpy", email="vlpyslaru+gearwheel@gmail.com" },
-]
+name = "gearwheels"
 description = "todo"
+authors = [
+    {name = "vladpy8", email = "vlpyslaru+gearwheels@gmail.com"},
+]
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
-	"Programming Language :: Python :: 3",
-	"Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
 ]
-dependencies=[
-	"python>=3.10",
+dependencies = [
 ]
 dynamic = [
-	"version",
+    "version",
 ]
 
 [project.urls]
-homepage="https://github.com/vladpy8/gearwheel"
-repository="https://github.com/vladpy8/gearwheel"
+homepage = "https://github.com/vladpy8/gearwheels"
+repository = "https://github.com/vladpy8/gearwheels"
 
 [project.optional-dependencies]
 dev = [
-	"pylint>=2.15",
-	"mypy>=0.982",
+    "pylint>=2.15",
+    "mypy>=0.982",
 ]
 
 
