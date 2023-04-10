@@ -3,7 +3,8 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - pip>=22.2
   - python=3.10
-  - pylint>=2.15
-  - mypy>=0.982
+  - pdm~=2.4
+  - pip~=22.2
+  - pylint~=2.15
+  - mypy~=0.982
