@@ -1,6 +1,6 @@
 [project]
 name = "gearwheels"
-description = ""
+description = "This is a project placeholder, please stand by"
 license = {text = "MIT"}
 readme = "README.md"
 authors = [
@@ -13,6 +13,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Typing :: Typed",
     "Framework :: AsyncIO",
+    "Development Status :: 1 - Planning",
 ]
 dependencies = [
 ]
@@ -25,6 +26,7 @@ homepage = "https://github.com/vladpy8/gearwheels"
 repository = "https://github.com/vladpy8/gearwheels"
 
 [tool.pdm]
+version = { source = "file", path = "gearwheels/__version__.py" }
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -34,8 +36,8 @@ dev = [
 ]
 
 [build-system]
-requires = ["pdm-pep517>=1.0"]
-build-backend = "pdm.pep517.api"
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
 
 
 [tool.pylint]
