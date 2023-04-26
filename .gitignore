@@ -13,5 +13,5 @@
 !*/**/*.md
 
 !*/**/
-!gearwheels/
+!src/
 !shell/

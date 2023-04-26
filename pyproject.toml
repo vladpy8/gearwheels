@@ -26,7 +26,7 @@ homepage = "https://github.com/vladpy8/gearwheels"
 repository = "https://github.com/vladpy8/gearwheels"
 
 [tool.pdm]
-version = { source = "file", path = "gearwheels/__version__.py" }
+version = { source = "file", path = "src/gearwheels/__version__.py" }
 
 [tool.pdm.dev-dependencies]
 dev = [
