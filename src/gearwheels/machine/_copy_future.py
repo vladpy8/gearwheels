@@ -14,15 +14,15 @@ def _copy_future(future: asyncio.Future[ResultType]) -> asyncio.Future[ResultTyp
 
 		return asyncio.ensure_future(__copy_future())
 
-	future = future.get_loop().create_future()
+	future_copy = future.get_loop().create_future()
 
 	if future.cancelled():
-		future.cancel()
-		return future
+		future_copy.cancel()
+		return future_copy
 
 	if future.exception() is not None:
-		future.set_exception(typing.cast(Exception, future.exception()))
-		return future
+		future_copy.set_exception(typing.cast(Exception, future.exception()))
+		return future_copy
 
-	future.set_result(future.result())
-	return future
+	future_copy.set_result(future.result())
+	return future_copy
