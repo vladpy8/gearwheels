@@ -1,3 +1,5 @@
-from gearwheels.machine.icommand import ICommand
+from gearwheels.machine import error
 
-from gearwheels.machine.runner import Runner
+from gearwheels.machine.future_set import FutureSet
+
+from gearwheels.machine.parallel_machine import ParallelMachine
