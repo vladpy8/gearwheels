@@ -33,6 +33,7 @@ dev = [
     "pylint~=2.17",
     "mypy~=1.2",
     "yapf~=0.33",
+    "pyright~=1.1",
 ]
 
 [build-system]
@@ -42,9 +43,6 @@ build-backend = "pdm.backend"
 
 [tool.pylint]
 
-[tool.pylint.main]
-jobs=1
-
 [tool.pylint.format]
 indent-string="\t"
 max-line-length=120
@@ -52,6 +50,18 @@ max-line-length=120
 [tool.pylint.design]
 min-public-methods=1
 max-args=10
+
+[tool.pylint.string]
+check-quote-consistency=true
+
+[tool.pylint.message-control]
+disable=[
+    "broad-exception-caught",
+]
+
+
+[tool.pyright]
+typeCheckingMode="strict"
 
 
 [tool.mypy]
