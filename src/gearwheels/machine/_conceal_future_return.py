@@ -2,12 +2,12 @@ import typing
 import asyncio
 
 
-def _conceal_future_return(future: asyncio.Future[typing.Any]) -> asyncio.Future[None]:
+def conceal_future_return(future: asyncio.Future[typing.Any]) -> asyncio.Future[None]:
 
-	async def __conceal_future_return_async() -> None:
+	async def conceal_future_return_async() -> None:
 		try:
 			await future
-		except:
+		except BaseException:
 			pass
 
-	return asyncio.create_task(__conceal_future_return_async())
+	return asyncio.create_task(conceal_future_return_async())

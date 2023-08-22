@@ -5,7 +5,7 @@ import asyncio
 ResultType = typing.TypeVar('ResultType')
 
 
-def _conceal_future(future: asyncio.Future[ResultType]) -> asyncio.Future[ResultType]:
+def conceal_future(future: asyncio.Future[ResultType]) -> asyncio.Future[ResultType]:
 
 	async def __conceal_future_async() -> ResultType:
 		return await future

@@ -2,7 +2,7 @@ import typing
 import asyncio
 from collections import deque
 
-from gearwheels.machine._conceal_future_return import _conceal_future_return
+from gearwheels.machine._conceal_future_return import conceal_future_return
 
 
 class FutureSet:
@@ -10,24 +10,21 @@ class FutureSet:
 
 	def __init__(self):
 
-		self.__future_set = deque()
+		self.__future_set: deque[asyncio.Future[None]] = deque()
 
 
-	@typing.final
 	def empty(self) -> bool:
 		return len(self.__future_set) == 0
 
 
-	@typing.final
 	def add(
 			self,
 			future: asyncio.Future[typing.Any],
 		) -> None:
 
-		self.__future_set.append(_conceal_future_return(future))
+		self.__future_set.append(conceal_future_return(future))
 
 
-	@typing.final
 	def clear(
 			self,
 			complete_f: bool = False,

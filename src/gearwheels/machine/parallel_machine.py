@@ -5,7 +5,7 @@ import asyncio
 from gearwheels.machine.error import MustStartError
 from gearwheels.machine.future_set import FutureSet
 
-from gearwheels.machine._conceal_future import _conceal_future
+from gearwheels.machine._conceal_future import conceal_future
 
 
 ResultType = typing.TypeVar('ResultType')
@@ -29,34 +29,30 @@ class ParallelMachine(
 		self.__future_set = FutureSet()
 
 
-	@typing.final
 	def start(self) -> asyncio.Future[None]:
 
 		if self.__start_future is not None:
-			return _conceal_future(self.__start_future)
+			return conceal_future(self.__start_future)
 
-		stop_future = None
-		if self.__stop_future is not None:
-			stop_future = self.__stop_future
-			self.__stop_future = None
+		stop_future = self.__stop_future
+		self.__stop_future = None
 
-		async def __start_async() -> None:
+		async def start_async() -> None:
 
 			if stop_future is not None:
 				await stop_future
 
 			await self._start()
 
-		self.__start_future = asyncio.create_task(__start_async())
+		self.__start_future = asyncio.create_task(start_async())
 
-		return _conceal_future(self.__start_future)
+		return conceal_future(self.__start_future)
 
 
-	@typing.final
 	def stop(self) -> asyncio.Future[None]:
 
 		if self.__stop_future is not None:
-			return _conceal_future(self.__stop_future)
+			return conceal_future(self.__stop_future)
 
 		if self.__start_future is None:
 			return asyncio.ensure_future(asyncio.sleep(0, None))
@@ -66,7 +62,7 @@ class ParallelMachine(
 
 		execute_complete_future = self.__future_set.clear(complete_f=True,)
 
-		async def __stop_async() -> None:
+		async def stop_async() -> None:
 
 			await start_future
 			await execute_complete_future
@@ -78,13 +74,12 @@ class ParallelMachine(
 
 			await self._stop()
 
-		self.__stop_future = asyncio.ensure_future(__stop_async())
+		self.__stop_future = asyncio.ensure_future(stop_async())
 		stop_future = self.__stop_future
 
-		return _conceal_future(self.__stop_future)
+		return conceal_future(self.__stop_future)
 
 
-	@typing.final
 	def execute(self) -> asyncio.Future[ResultType]:
 
 		if self.__start_future is None:
@@ -92,16 +87,16 @@ class ParallelMachine(
 
 		start_future = self.__start_future
 
-		async def __execute_async() -> ResultType:
+		async def execute_async() -> ResultType:
 
 			await start_future
 
 			return await self._execute()
 
-		execute_future = asyncio.create_task(__execute_async())
+		execute_future = asyncio.create_task(execute_async())
 		self.__future_set.add(execute_future)
 
-		return _conceal_future(execute_future)
+		return conceal_future(execute_future)
 
 
 	async def _start(self) -> None:
