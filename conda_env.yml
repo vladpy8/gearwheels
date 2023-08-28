@@ -3,6 +3,6 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10
-  - pip~=22.2
-  - pdm~=2.4
+  - python=3.11
+  - pip~=23.2
+  - pdm~=2.8
